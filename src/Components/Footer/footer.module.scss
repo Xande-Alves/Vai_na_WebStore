@@ -1,0 +1,34 @@
+footer {
+  background-color: #2e3192;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+
+    >img {
+        width: 100px;
+    }
+
+    nav {
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  footer {
+    div {
+      width: 100%;
+
+      nav {
+        width: 50%;
+      }
+    }
+  }
+}
