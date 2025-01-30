@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
-import "./vestuarioFeminino.module.scss";
+import s from "./vestuarioFeminino.module.scss";
 import Footer from "../../Components/Footer/Footer";
 
 export default function VestuarioFeminino() {

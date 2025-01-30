@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
-import  "./home.module.scss";
+import s from "./home.module.scss";
 import '../../Components/Footer/Footer'
 import Footer from "../../Components/Footer/Footer";
 

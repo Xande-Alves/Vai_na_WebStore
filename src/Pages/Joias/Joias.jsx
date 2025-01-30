@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 import axios from "axios";
-import "./joias.module.scss";
+import s from "./joias.module.scss";
 import Footer from "../../Components/Footer/Footer";
 
 export default function Joias() {

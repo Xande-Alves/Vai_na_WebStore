@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
-import "./eletronicos.module.scss";
+import s from "./eletronicos.module.scss";
 import Footer from "../../Components/Footer/Footer";
 
 export default function Eletronicos() {

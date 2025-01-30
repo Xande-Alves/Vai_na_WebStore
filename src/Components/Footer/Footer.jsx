@@ -2,7 +2,7 @@ import facebook from "../../assets/facebook.png";
 import x from "../../assets/x.png";
 import instagram from "../../assets/instagram.png";
 import vnw from "../../assets/vnw.jpg";
-import "./footer.module.scss";
+import s from "./footer.module.scss";
 
 export default function Footer() {
 
