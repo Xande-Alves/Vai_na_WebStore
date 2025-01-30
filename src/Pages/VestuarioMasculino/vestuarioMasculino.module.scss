@@ -11,7 +11,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
 
@@ -40,6 +40,21 @@
       font-size: 0.9em;
       margin-bottom: 10px;
       width: 100%;
+    }
+
+    button {
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #ffaf1aa3;
+      font-weight: bolder;
+      border: solid 1px black;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #2e3192;
+        color: #fff;
+        cursor: pointer;
+      }
     }
 
     &:hover {

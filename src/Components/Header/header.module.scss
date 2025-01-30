@@ -42,6 +42,25 @@
       }
     }
   }
+
+  section {
+    background-color: #fdaf17;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-weight: bolder;
+    font-size: 1.3em;
+
+    a {
+      display: flex;
+      align-items: center;
+      img {
+        width: 40px;
+        margin-right: 20px;
+      }
+    }
+  }
 }
 
 @media (max-width:500px) {

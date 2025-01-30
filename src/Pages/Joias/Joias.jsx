@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Header from "../../Components/Header/Header";
 import axios from "axios";
 import s from "./joias.module.scss";
 import Footer from "../../Components/Footer/Footer";
+import { AppContext } from "../../Context";
 
 export default function Joias() {
+  //renderizando dados da API
   const [produtos, setProdutos] = useState([]);
 
   const renderizaJoias = async () => {
@@ -24,6 +26,9 @@ export default function Joias() {
     renderizaJoias();
   }, []);
 
+  //OBTENDO ESTADO GLOBAL
+  const {carrinho, setCarrinho} = useContext(AppContext)
+
   return (
     <>
       <Header />
@@ -42,6 +47,7 @@ export default function Joias() {
             <p>
               <b>Category: </b> {item.category}
             </p>
+            <button onClick={()=> setCarrinho(carrinho + 1)}>Adicionar ao carrinho</button>
           </article>
         ))}
       </section>

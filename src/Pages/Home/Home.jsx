@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
 import s from "./home.module.scss";
 import '../../Components/Footer/Footer'
 import Footer from "../../Components/Footer/Footer";
+import { AppContext } from "../../Context";
 
 export default function Home() {
+  // TRATANDO DADOS DO API PARA RENDERIZAR
   const [loja, setLoja] = useState([]);
 
   const getItemLoja = async () => {
@@ -16,6 +18,9 @@ export default function Home() {
   useEffect(() => {
     getItemLoja();
   }, []);
+
+  //OBTENDO ESTADO GLOBAL
+  const { carrinho, setCarrinho } = useContext(AppContext);
 
   return (
     <>
@@ -32,6 +37,7 @@ export default function Home() {
               <h3>R$ {item.price.toFixed(2)}</h3>
               <p><b>Description: </b> {item.description}</p>
               <p><b>Category: </b> {item.category}</p>
+              <button onClick={() => setCarrinho(carrinho + 1)}>Adicionar ao carrinho</button>
             </article>
           ))}
         </section>

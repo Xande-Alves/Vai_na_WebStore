@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Header from "../../Components/Header/Header";
 import s from "./vestuarioFeminino.module.scss";
 import Footer from "../../Components/Footer/Footer";
+import { AppContext } from "../../Context";
 
 export default function VestuarioFeminino() {
+  //RENDERIZANDO DADOS DO API
   const [produtos, setProdutos] = useState([]);
 
   const renderizaVestFem = async () => {
@@ -24,6 +26,9 @@ export default function VestuarioFeminino() {
     renderizaVestFem();
   }, []);
 
+  //ESTADO GLOBAL
+  const {carrinho, setCarrinho} = useContext(AppContext)
+
   return (
     <>
       <Header />
@@ -42,6 +47,7 @@ export default function VestuarioFeminino() {
             <p>
               <b>Category: </b> {item.category}
             </p>
+            <button onClick={()=>setCarrinho(carrinho + 1)}>Adicionar ao carrinho</button>
           </article>
         ))}
       </section>
