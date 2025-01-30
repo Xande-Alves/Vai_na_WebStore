@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import vnw from '../../assets/vnw.jpg';
-import './header.module.scss' 
+import s from './header.module.scss' 
 
 
 export default function Header() {
