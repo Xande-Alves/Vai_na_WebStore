@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer>
+      <footer className={s.Footer}>
         <div>
           <img src={vnw} onClick={scrollToTop} alt="Logo da Vai na Web" />
           <nav>

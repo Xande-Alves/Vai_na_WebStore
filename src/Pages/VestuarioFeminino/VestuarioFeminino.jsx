@@ -27,7 +27,7 @@ export default function VestuarioFeminino() {
   return (
     <>
       <Header />
-      <section>
+      <section className={s.mainSection}>
         {produtos.map((item) => (
           <article>
             <img

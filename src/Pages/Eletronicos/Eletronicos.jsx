@@ -27,7 +27,7 @@ export default function Eletronicos() {
   return (
     <>
       <Header />
-      <section>
+      <section className={s.mainSection}>
         {produtos.map((item) => (
           <article>
             <img

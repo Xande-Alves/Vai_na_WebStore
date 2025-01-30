@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className={s.Main}>
         <section>
           {loja.map((item) => (
             <article>

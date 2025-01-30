@@ -5,7 +5,7 @@ import s from './header.module.scss'
 
 export default function Header() {
   return (
-    <header>
+    <header className={s.Header}>
         <div>
           <img src={vnw} alt="Logo da Vai na Web" />
           <h1>VAI NA WEBSTORE</h1>
