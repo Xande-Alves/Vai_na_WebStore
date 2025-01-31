@@ -22,6 +22,11 @@ export default function Home() {
   //OBTENDO ESTADO GLOBAL
   const { carrinho, setCarrinho } = useContext(AppContext);
 
+  //ADICIONANDO ITENS AO CARRINHO
+  const adicionarCarrinho = (produto) => {
+    setCarrinho([...carrinho, produto])
+  }
+
   return (
     <>
       <Header />
@@ -37,7 +42,7 @@ export default function Home() {
               <h3>R$ {item.price.toFixed(2)}</h3>
               <p><b>Description: </b> {item.description}</p>
               <p><b>Category: </b> {item.category}</p>
-              <button onClick={() => setCarrinho(carrinho + 1)}>Adicionar ao carrinho</button>
+              <button onClick={() => adicionarCarrinho(item)}>Adicionar ao carrinho</button>
             </article>
           ))}
         </section>

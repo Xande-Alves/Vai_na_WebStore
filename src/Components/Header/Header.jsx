@@ -35,9 +35,9 @@ export default function Header() {
         </ul>
       </nav>
       <section>
-        <Link>
+        <Link to={'/Carrinho'}>
           <img src={carro} alt="Imagem de carrinho de compras." />
-          <span>Carrinho: {carrinho} itens</span>
+          <span>Carrinho: {carrinho.length} itens</span>
         </Link>
       </section>
     </header>

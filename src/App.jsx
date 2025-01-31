@@ -6,6 +6,7 @@ import VestuarioFeminino from "./Pages/VestuarioFeminino/VestuarioFeminino";
 import Eletronicos from "./Pages/Eletronicos/Eletronicos";
 import "./globalReset.scss";
 import { AppProvider } from "./Context";
+import Carrinho from "./Pages/Carrinho/Carrinho";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/VestMasc" element={<VestuarioMasculino />} />
           <Route path="/VestFem" element={<VestuarioFeminino />} />
           <Route path="/Eletronicos" element={<Eletronicos />} />
+          <Route path="/Carrinho" element={<Carrinho />}/>
         </Routes>
       </BrowserRouter>
     </AppProvider>
