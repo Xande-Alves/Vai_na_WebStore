@@ -25,7 +25,7 @@ export default function Carrinho() {
   const diminuiQuant = (index) => {
     setQuantidades((prev) => ({
       ...prev,
-      [index]: prev[index] > 1 ? prev[index] - 1 : 1, // Evita quantidade menor que 1
+      [index]: prev[index] > 0 ? prev[index] - 1 : 0, // Evita quantidade menor que 0
     }));
   };
 

@@ -6,9 +6,10 @@ import Footer from "../../Components/Footer/Footer";
 import { AppContext } from "../../Context";
 
 export default function VestuarioFeminino() {
-  //RENDERIZANDO DADOS DO API
+  // Estado para armazenar os produtos filtrados da API
   const [produtos, setProdutos] = useState([]);
 
+  // Obtendo os produtos da API e filtrando apenas vestuário feminino
   const renderizaVestFem = async () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
@@ -17,7 +18,7 @@ export default function VestuarioFeminino() {
         (item) => item.category === "women's clothing"
       );
       setProdutos(dadosVestFem);
-    } catch {
+    } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
   };
@@ -26,35 +27,53 @@ export default function VestuarioFeminino() {
     renderizaVestFem();
   }, []);
 
-  //ESTADO GLOBAL
-  const {carrinho, setCarrinho} = useContext(AppContext)
+  // Obtendo estado global do carrinho
+  const { carrinho, setCarrinho } = useContext(AppContext);
 
-  //ADICIONANDO ITENS AO CARRINHO
-  const adicionarCarrinho = (produto) => {
-    setCarrinho([...carrinho, produto])
-  }
+  // Função para adicionar ou remover do carrinho
+  const toggleCarrinho = (produto) => {
+    // Verifica se o item já está no carrinho
+    const estaNoCarrinho = carrinho.some((item) => item.id === produto.id);
+
+    if (estaNoCarrinho) {
+      // Remove o item do carrinho
+      setCarrinho(carrinho.filter((item) => item.id !== produto.id));
+    } else {
+      // Adiciona o item ao carrinho
+      setCarrinho([...carrinho, produto]);
+    }
+  };
 
   return (
     <>
       <Header />
       <section className={s.mainSection}>
-        {produtos.map((item) => (
-          <article>
-            <img
-              src={item.image}
-              alt="Imagem do item da loja, descrição logo abaixo."
-            />
-            <h2>{item.title}</h2>
-            <h3>R$ {item.price.toFixed(2)}</h3>
-            <p>
-              <b>Description: </b> {item.description}
-            </p>
-            <p>
-              <b>Category: </b> {item.category}
-            </p>
-            <button onClick={()=>adicionarCarrinho(item)}>Adicionar ao carrinho</button>
-          </article>
-        ))}
+        {produtos.map((item) => {
+          const estaNoCarrinho = carrinho.some((produto) => produto.id === item.id);
+
+          return (
+            <article key={item.id}>
+              <img
+                src={item.image}
+                alt={`Imagem do produto: ${item.title}`}
+              />
+              <h2>{item.title}</h2>
+              <h3>R$ {item.price.toFixed(2)}</h3>
+              <p>
+                <b>Description: </b> {item.description}
+              </p>
+              <p>
+                <b>Category: </b> {item.category}
+              </p>
+              <button 
+                onClick={() => toggleCarrinho(item)} 
+                className={estaNoCarrinho ? s.remover : s.adicionar}
+              >
+                {estaNoCarrinho ? "Retirar do Carrinho" : "Adicionar ao Carrinho"}
+              </button>
+            </article>
+          );
+        })}
       </section>
       <Footer />
     </>
